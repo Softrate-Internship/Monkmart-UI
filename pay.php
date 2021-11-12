@@ -89,8 +89,8 @@
         </div>
     </header>
 
-    <div class="cart__totals">
-        <h3 style="text-align:center;">Shipping Details</h3>
+    <div class="cart__totals" class="details" style="width:min-content;min-width:55%;border-radius:8px">
+        <h1 style="text-align:center;">Shipping Details</h1>
         <br>
         <div style="display:inline"><h1 style="font-size:100%;display:inline">Name:&nbsp;&nbsp;</h1><h4 style="display:inline"><?php echo $_SESSION['order_name']; ?></h4></div>
         <br><br>
@@ -181,7 +181,7 @@
                             
                         </div>
                         <?php if($total!=0){ ?>
-                        <div class="cart__totals">
+                        <div class="cart__totals" style="width:max-content;min-width:70%;border-radius:8px">
                             <h3>Order Totals</h3>
                             <ul>
                                 <li>
@@ -207,10 +207,6 @@
             </div>
         </section>
     </main>
-
-
-
-
 
 <?php
 $name = $_SESSION['name'];

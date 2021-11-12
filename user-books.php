@@ -206,7 +206,7 @@ if(isset($_SESSION['id'])){
                         </div>
                         <div class="book_info">
                             <div class="book_title">
-                                <h2><?php echo $row['name']; ?></h2>
+                                <h2 style="margin-top:10px;"><?php echo $row['name']; ?></h2>
                                 <p><?php echo $row['author']; ?></p>
                             </div>
                             <div class="desc">
@@ -228,7 +228,7 @@ if(isset($_SESSION['id'])){
                             <h4 style="color:green"><?php echo $row['quantity']; ?> left in stock</h4>
                             <?php } ?>
                             <button class="view-btn">
-                                <a href="#">View</a>
+                                <a href="product.php?id=<?php echo $row['id']; ?>">View</a>
                             </button>
                         </div>
                     </div>

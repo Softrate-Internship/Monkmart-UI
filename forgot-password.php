@@ -29,6 +29,8 @@
     <!-- Custom StyleSheet -->
     <link rel="stylesheet" href="styles.css" />
 
+    <link rel="stylesheet" href="forgetpass.css" />
+
     <title>Monk mart</title>
 </head>
 
@@ -76,19 +78,26 @@
             <?php 
     } else {?>
     <br>
-    <div class="modal-content" style="padding:10px;min-width:40%;width:max-content;margin-left:auto;margin-top:5%;margin-bottom:5%;margin-right:auto;display:block;text-align:center">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel" style="font-size:90%">Forgot Password</h5>
-      </div>
-      <form method="POST">
-      <div class="modal-body">
-        <input type="email" name="email" class="input-field" style="margin-bottom:20px;" placeholder="Email" required >
-        <br>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" type="submit" name='submit' style="font-size:90%">Send</button>
-      </div>
-    </div>
+                    <div class="modal-content login_modal" style="width:max-content;display:block;margin-left: auto;margin-right: auto;margin-top: 0%;margin-bottom:0%">
+                        <div class="login_box">
+                            <img src="" alt="">
+                            <div class="login_header">
+                                <h2>Forgot Password !!</h2>
+                            </div>
+                            <br>
+                            <div class="login_content">
+                                <form method="POST" class="form">
+                                    <div class="email_inp">
+                                        <label for="email">Email:</label>
+                                        <input type="email" name="email" placeholder="Email" id=""required>
+                                    </div>
+                                    <div class="send_btn" >
+                                        <button type="submit" name="submit" >Send</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
 <?php } ?>
 
 </body>

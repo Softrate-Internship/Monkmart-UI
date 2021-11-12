@@ -1,7 +1,7 @@
 <?php  
     include('config/constants.php');
-    $email = $_GET['email'];
-    $password = $_GET['pswd'];
+    $email = $_POST['email'];
+    $password = $_POST['pswd'];
     $password = md5($password);
     $sql = "SELECT * from users WHERE email='$email'";
     $result = $conn->query($sql);

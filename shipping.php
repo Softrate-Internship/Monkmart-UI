@@ -84,8 +84,8 @@
             </div>
         </div>
     </header>
-        <div class="cart__totals">
-            <h3 style="text-align:center">Enter Shipping Details</h3>
+        <div class="cart__totals" style="width:max-content;min-width:50%;border-radius:8px">
+            <h3 style="text-align:center;">Enter Shipping Details</h3>
             <br>
             <form method="POST" action = "get-shipping.php">
             <ul style="text-align:center">

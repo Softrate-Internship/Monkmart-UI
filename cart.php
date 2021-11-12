@@ -181,12 +181,12 @@
                         </script> 
                         <div class="cart-btns">
                             <div class="continue__shopping">
-                                <a href="user-books.php">Continue Shopping</a>
+                                <a  href="user-books.php">Continue Shopping</a>
                             </div>
                             
                         </div>
                         <?php if($total!=0){ ?>
-                        <div class="cart__totals">
+                        <div class="cart__totals" style="width:max-content;min-width:50%;border-radius:8px">
                             <h3>Cart Totals</h3>
                             <ul>
                                 <li>
@@ -202,7 +202,7 @@
                                     <span class="new__price"><?php echo $total; ?> ₹</span>
                                 </li>
                             </ul>
-                            <a href="shipping.php">PROCEED TO CHECKOUT</a>
+                            <a style="display:block;margin-left:auto;margin-right:auto;width:max-content" href="shipping.php">PROCEED TO CHECKOUT</a>
                         </div>
                         <?php 
                         }

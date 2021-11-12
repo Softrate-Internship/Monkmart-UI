@@ -3,9 +3,11 @@
     />
     <style>
         .b {
-            margin-left:40%;
+            display: block;
+            margin-left:auto;
+            margin-right:auto;
             padding: 20px;
-            width:20%;
+            width:max-content;
             background-color:white;
             margin-bottom:30px;
         }

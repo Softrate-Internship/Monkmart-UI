@@ -1,0 +1,145 @@
+.login_modal {
+    height: 40vh;
+    width: 100vw;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_container {
+    display: flex;
+    overflow: hidden;
+}
+
+.login_img {
+    object-fit: contain
+}
+
+.login_box {
+    height: 40vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: none !important;
+    outline: none !important;
+    padding: 40px !important
+}
+
+.login_header h2 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+form {
+    margin-top: 5px;
+    padding: 10px;
+}
+
+.email_inp>label {
+    padding: 12px;
+    display: block;
+    text-align: left;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.876);
+    font-weight: 600;
+}
+
+.email_inp>input {
+    width: 100%;
+    background: transparent;
+    position: relative;
+    outline-width: 0;
+    background-color: transparent;
+    border-bottom: 2px;
+    padding: 6px;
+    border-bottom: 2px solid white;
+    font-size: 18px;
+    border: 1px solid grey;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-left: 8px;
+}
+
+.email_inp>input:focus {
+    transition: 0.2s ease-in-out;
+    border-bottom: 2px solid #4570CD;
+    background: transparent;
+}
+
+.send_btn {
+    margin-top: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+.send_btn button {
+    outline-width: 0;
+    border: none;
+    margin-top: 20px;
+    background-color: transparent;
+    
+    font-family: 'Poppins', sans-serif;
+    border-radius: 10px;
+    padding: 8px 16px;
+    border: 2px solid #414ad7;
+    text-decoration: none;
+    color: #4570CD;
+    font-weight: 600;
+}
+
+.send_btn a {
+    font-family: 'Poppins', sans-serif;
+    border-radius: 10px;
+    padding: 8px 16px;
+    border: 2px solid #414ad7;
+    text-decoration: none;
+    color: #4570CD;
+    font-weight: 600;
+}
+
+.send_btn button:hover {
+    transition: 0.2s ease-in-out;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(19, 18, 18, 0.911), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #414ad7;
+}
+
+.email_inp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media(max-width:968px) {
+    .login_modal {
+        background-image: linear-gradient(to right top, #b4cef6, #c5d2f1, #d2d7ec, #dcdce7, #e3e3e3);
+    }
+    .login_img img {
+        display: none;
+    }
+}
+
+@media(max-width: 640px) {
+    .login_container {
+        width: 100vw;
+    }
+    .login_box {
+        padding: 10px !important
+    }
+    .login_header h2 {
+        font-size: 24px
+    }
+    .email_inp>label {
+        font-size: 14px;
+        /* padding: px; */
+    }
+    form {
+        margin-top: 5px;
+        padding: 5px;
+    }
+    .login_btn a {
+        padding: 7px 27px;
+    }
+}

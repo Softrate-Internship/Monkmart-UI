@@ -36,6 +36,7 @@ if(isset($_SESSION['id'])){
     <!-- Custom StyleSheet -->
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="card.css" />
+    <link rel="stylesheet" href="Login.css" />
 
     <title>Monk mart</title>
     <style>
@@ -271,7 +272,7 @@ if(isset($_SESSION['id'])){
                         </div>
                         <div class="book_info">
                             <div class="book_title">
-                                <h2><?php echo $row['name']; ?></h2>
+                                <h2 style="margin-top:10px;"><?php echo $row['name']; ?></h2>
                                 <p><?php echo $row['author']; ?></p>
                             </div>
                             <div class="desc">
@@ -293,7 +294,7 @@ if(isset($_SESSION['id'])){
                             <h4 style="color:green"><?php echo $row['quantity']; ?> left in stock</h4>
                             <?php } ?>
                             <button class="view-btn">
-                                <a href="#">View</a>
+                                <a href="product.php?id=<?php echo $row['id']; ?>">View</a>
                             </button>
                         </div>
                     </div>
@@ -559,32 +560,47 @@ if(isset($_SESSION['id'])){
 </html>
 
 <!-- Modal -->
+<!-- MODAL -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel" style="font-size: large;">Login</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <br>
-            <form action="login-check.php">
-                <div class="modal-body" style="text-align: center;">
-                    <input class="input-field" type="email" name="email" placeholder="Email" required>
-                    <br>
-                    <br>
-                    <input class="input-field" type="password" name="pswd" placeholder="Password" required>
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+               
+                    
+                   
+                    <div class="modal-content login_modal">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position:absolute;top:0;right:0;padding:15px"></button>
+                         <div class="login_container">
+                         <div class="modal-header">
+                            <div class="login_img">
+                                <img src="http://www.stuplate.com/assets/img/signup5.jpg" alt="">
+                            </div>
+                            <div class="login_box">
+                                <div class="login_header">
+                                    <h2>Hello !!</h2>
+                                </div>
+                                <div class="login_content">
+                                    <form action="login-check.php" method="POST" class="form">
+                                        <div class="email_inp">
+                                            <label for="email">Email:</label>
+                                            <input type="email" name="email" placeholder="Email" id="" required>
+                                        </div>
+                                        <div class="password_inp">
+                                            <label for="password">Password:</label>
+                                            <input type="password" name="pswd" placeholder="Password" id="" required>
+                                        </div>
+                                        <div class="forgot_password">
+                                            <p>Forgot Password <span><a href="forgot-password.php">Click here!</a></span></p>
+                                        </div>
+                                        <div class="login_btn" >
+                                            <button type="submit">Login</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
 
-                <p style="margin-top:10px">Forgot Password?? <a href="forgot-password.php">Click Here</a></p>
-                    <br>
-                    <br>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary btn-lg">Login</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+            </div>
 
 <div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
