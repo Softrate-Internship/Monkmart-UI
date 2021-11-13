@@ -123,3 +123,5 @@
     <script src="./js/index.js"></script>
     <script src="./js/slider.js"></script>
 </body>
+
+<?php include('footer.php'); ?>

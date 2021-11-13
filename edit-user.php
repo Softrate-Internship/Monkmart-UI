@@ -37,6 +37,42 @@ include('config/login-check.php');
         <link rel="stylesheet" href="styles.css" />
 
         <title>Monk mart</title>
+        <style>
+            .b {
+    outline: none;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+}
+.c {
+    color:white;
+}
+.c:hover {
+    color: #2b1f4d;
+
+}
+
+
+/* View */
+
+.view-btn a {
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid #2b1f4d;
+    padding: 7px 27px;
+    background-color: #2b1f4d;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+.view-btn :hover {
+    transition: all 250ms ease-in-out;
+    background-color: white;
+    color: #2b1f4d;
+}
+</style>
     </head>
 
     <body>
@@ -144,6 +180,8 @@ include('config/login-check.php');
                     <input class="input-field" type="hidden" name="prevImg" value="<?php echo $row['image']; ?>" placeholder="">
                     <br>
                     <br>
-                <input type="submit" value="Update" name="update" style="width:90%;margin-left:5%;">
+                    <button style="margin-top:10px" class="b view-btn" type="submit">
+                        <a class="c">UPDATE</a>
+                    </button>
         </form>
     </div>

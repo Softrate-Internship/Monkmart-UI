@@ -20,14 +20,13 @@
     if($result){
         ?>
         <script>
-        alert("Successfully Updated");
         window.location.href='user.php'</script>
         <?php 
     }
     else{
         ?>
         <script>
-        alert("Already Exists");
+        alert("Phone Number Exists");
         window.location.href='user.php'</script>
         <?php
     }

@@ -26,6 +26,37 @@
     <link rel="stylesheet" href="styles.css" />
 
     <title>Monk mart</title>
+    <style>
+    .b {
+    
+    outline: none;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+}
+
+
+/* View */
+
+.view-btn a {
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid #2b1f4d;
+    padding: 7px 27px;
+    background-color: #2b1f4d;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+.view-btn :hover {
+    transition: all 250ms ease-in-out;
+    background-color: white;
+    color: #2b1f4d;
+}
+</style>
+
 </head>
 
 <body>
@@ -119,14 +150,16 @@
                             <br>
                             <br>
                             <br>
-                            <p>Name: <?php echo $row['name']; ?></p>
+                            <p style="font-size:120%"><b>Name: </b> <?php echo $row['name']; ?></p>
                             <br>
-                            <p>Email: <?php echo $row['email']; ?></p>
+                            <p style="font-size:120%"><b>Email: </b><?php echo $row['email']; ?></p>
                             <br>
-                            <p>Phone Number: <?php echo $row['phone']; ?></p>
+                            <p style="font-size:120%"><b>Phone Number: </b> <?php echo $row['phone']; ?></p>
                             <br>
                             
-                            <a href="edit-user.php"><button class="btn btn-outline-success btn-lg" style="width:40%">Edit</button></a>
+                            <button style="width:50%;margin-top:20px" class="b view-btn">
+                                <a href="edit-user.php" style="width:50%">EDIT</a>
+                            </button>
                         </div>
                     </div>
                 </div>

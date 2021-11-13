@@ -46,6 +46,40 @@ if(isset($_SESSION['id'])){
   background-color:red;
   color:white;
 }
+.b {
+    outline: none;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+}
+.c {
+    color:white;
+}
+.c:hover {
+    color: #2b1f4d;
+
+}
+
+
+/* View */
+
+.view-btn a {
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid #2b1f4d;
+    padding: 7px 27px;
+    background-color: #2b1f4d;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+.view-btn :hover {
+    transition: all 250ms ease-in-out;
+    background-color: white;
+    color: #2b1f4d;
+}
     </style>
 </head>
 
@@ -240,8 +274,9 @@ if(isset($_SESSION['id'])){
                                     $result5 = $conn->query($sql5);
                                     if($result5->num_rows==0){
                                     ?>
-
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop3" class="btn btn-outline-secondary btn-lg" style="margin-top:20px;margin-bottom:20px">ADD REVIEW</button>
+                                    <button style="margin-top:20px;margin-bottom:20px" class="b view-btn">
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop3" class="c" style="color:white" onMouseOver="this.style.color='#2b1f4d'" onMouseOut="this.style.color='white'">ADD REVIEW</a>
+                                    </button>
                                      <?php  } } 
                                     elseif($row['quantity']>0){ ?> 
                                     <div class="product-details__btn">
@@ -391,13 +426,9 @@ if(isset($_SESSION['id'])){
 
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-xl">
-               
-                    
-                   
-                    <div class="modal-content login_modal">
+                <div class="modal-content login_modal">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position:absolute;top:0;right:0;padding:15px"></button>
                          <div class="login_container">
-                         <div class="modal-header">
                             <div class="login_img">
                                 <img src="http://www.stuplate.com/assets/img/signup5.jpg" alt="">
                             </div>
@@ -424,7 +455,6 @@ if(isset($_SESSION['id'])){
                                     </form>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -462,7 +492,9 @@ if(isset($_SESSION['id'])){
                     <br>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary btn-lg">SignUp</button>
+                    <button class="b view-btn" type="submit">
+                        <a class="c">SUBMIT</a>
+                    </button>
                 </div>
             </form>
         </div>
@@ -485,7 +517,9 @@ if(isset($_SESSION['id'])){
         <input type="hidden" value="<?php echo $id; ?>" name="id" id="oid">
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Add</button>
+        <button class="b view-btn" type="submit">
+            <a class="c">ADD</a>
+        </button>
       </div>
       </form>
     </div>

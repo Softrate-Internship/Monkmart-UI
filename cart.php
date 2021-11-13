@@ -31,6 +31,37 @@
     <link rel="stylesheet" href="cart.css" />
 
     <title>Monk mart</title>
+    <style>
+        .b {
+    
+    outline: none;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+}
+
+
+/* View */
+
+.view-btn a {
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid #2b1f4d;
+    padding: 7px 27px;
+    background-color: #2b1f4d;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+.view-btn :hover {
+    transition: all 250ms ease-in-out;
+    background-color: white;
+    color: #2b1f4d;
+}
+
+</style>
 </head>
 
 <body>
@@ -166,7 +197,9 @@ if($result->num_rows>0){
                     <br>
                     <div class="final_info">
                         <div class="total" style="display:inline">
-                                <p style="display:inline">Total : <?php echo $row['quantity'] * $row1['price']; ?> ₹</p>&nbsp;&nbsp;&nbsp;<a data-bs-target="#exampleModal2" data-bs-toggle="modal" onclick="myFunction(<?php echo $row['id']; ?>)" class="remove__cart-item"><i style="color:red;display:inline" class="fas fa-trash"></i>
+                                <p style="display:inline">Total : <?php echo $row['quantity'] * $row1['price']; ?> ₹</p>
+                                <a data-bs-target="#exampleModal2" data-bs-toggle="modal" onclick="myFunction(<?php echo $row['id']; ?>)" class="remove__cart-item">
+                                <i style="color:red;display:inline;padding-right:10px" class="fas fa-trash"></i>
                             </a>
                         </div>   
                     </div>
@@ -272,8 +305,9 @@ if($result->num_rows>0){
                     <h5 style="font-size:100%; margin-top:5%;margin-bottom:5%">Do you really want to delete?</h5>
                 </div>
                 <div class="modal-footer">
-                    <button style="font-size:100%;" type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
-                    <button style="font-size:100%;" type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="window.location.href='delete-cart.php?bid=' + bid ">Yes</button>
+                    <button class="b view-btn">
+                        <a  onclick="window.location.href='delete-cart.php?bid=' + bid " href="#">Delete</a>
+                    </button>
                 </div>
             </div>
         </div>

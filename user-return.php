@@ -27,6 +27,45 @@
     <link rel="stylesheet" href="order.css" />
 
     <title>Monk mart</title>
+    <style>
+        .b {
+    
+    outline: none;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+}
+
+
+/* View */
+
+.view-btn a {
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid #2b1f4d;
+    padding: 7px 27px;
+    background-color: #2b1f4d;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+.view-btn :hover {
+    transition: all 250ms ease-in-out;
+    background-color: white;
+    color: #2b1f4d;
+}
+.c {
+    color:white;
+}
+.c:hover {
+    color: #2b1f4d;
+
+}
+
+</style>
+
 </head>
 
 <body>
@@ -146,7 +185,7 @@
                 <div class="order_info_cont">
                     <div class="book_name" >
                         <h2><?php echo $row['book_name']; ?></h2>
-                        <p style="text-align:center">- <?php echo $row['author']; ?></p>
+                        <p>- <?php echo $row['author']; ?></p>
                     </div>
                     <br>
                     <div class="price_qty" style="margin-bottom:15px;">
@@ -286,7 +325,9 @@
         <input type="hidden" value="-1" name="id" id="oid">
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Return</button>
+      <button class="b view-btn" type="submit">
+                <a class="c">RETURN</a>
+            </button>
       </div>
       </form>
     </div>

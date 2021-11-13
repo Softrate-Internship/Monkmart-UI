@@ -48,9 +48,14 @@ if(isset($_SESSION['id'])){
     gap: 3rem 2rem;
         }
 
-@media only screen and (max-width: 999px) {
+@media only screen and (max-width: 1200px) {
     .roww {
         grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .roww {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -260,7 +265,9 @@ if(isset($_SESSION['id'])){
                 </div>
                 <br>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary btn-lg">Search</button>
+                    <button class="b view-btn" type="submit">
+                        <a class="c">SEARCH</a>
+                    </button>
                 </div>
             </form>
         </div>

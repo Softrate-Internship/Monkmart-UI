@@ -563,13 +563,9 @@ if(isset($_SESSION['id'])){
 <!-- MODAL -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-xl">
-               
-                    
-                   
-                    <div class="modal-content login_modal">
+                <div class="modal-content login_modal">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position:absolute;top:0;right:0;padding:15px"></button>
                          <div class="login_container">
-                         <div class="modal-header">
                             <div class="login_img">
                                 <img src="http://www.stuplate.com/assets/img/signup5.jpg" alt="">
                             </div>
@@ -596,12 +592,10 @@ if(isset($_SESSION['id'])){
                                     </form>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-
 <div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -616,7 +610,9 @@ if(isset($_SESSION['id'])){
                 </div>
                 <br>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary btn-lg">Search</button>
+                    <button class="b view-btn" type="submit">
+                        <a class="c">SEARCH</a>
+                    </button>
                 </div>
             </form>
         </div>
@@ -650,7 +646,9 @@ if(isset($_SESSION['id'])){
                     <br>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary btn-lg">SignUp</button>
+                    <button class="b view-btn" type="submit">
+                        <a class="c">SUBMIT</a>
+                    </button>
                 </div>
             </form>
         </div>

@@ -9,7 +9,7 @@
 }
 
 .order_container {
-    width: 80%;
+    width: max-content;
     padding: 20px;
     height: 350px;
     background-image: linear-gradient(to right top, #b4cef6, #c5d2f1, #d2d7ec, #dcdce7, #e3e3e3);
