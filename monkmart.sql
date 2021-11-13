@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 11, 2021 at 10:48 PM
+-- Generation Time: Nov 13, 2021 at 12:58 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.24
 
@@ -44,9 +44,9 @@ CREATE TABLE `books` (
 
 INSERT INTO `books` (`id`, `name`, `author`, `ndprice`, `price`, `quantity`, `image`, `description`) VALUES
 (7, 'Olive Again', 'Elizabeth Strout', 3000, 2800, 0, '7.jpg', 'The aim of Think Like a Monk is to help individuals apply a monk mindset to their lives. Think Like a Monk shows you how to clear the roadblocks to your potential by overcoming negative thoughts, accessing stillness, and a creating true purpose to your goal.\n\n'),
-(8, 'The Hobbit', 'JRR. Tolkien', 2000, 1500, 0, '8.jpg', 'Blurring genre boundaries, Cârneci\'s debut novel brings to life a mesmerizing landscape of female desire and frustration. As the fragmented yet captivating narrative examines the twin subjects of love and loss, readers are confronted with the ultimate feminist agenda of a woman’s right to choose, together with the numerous hurdles and dilemmas '),
-(9, 'Solar Bones', 'Mike McCormack', 2000, 1000, 8, '9.jpg', 'Set in a deserted Rome during a hot and melancholy August, this 1973 novel now touted as a classic rehashes a familiar theme within Italian literature and film: a country and art of malaise. At turns beautiful and frustrating, it ultimately feels like a pastiche of the works it attempts to keep company.'),
-(10, 'The Book of God', 'Walter', 2000, 2000, 5, '10.jpeg', 'Linguistic experimentation and political rebellion went hand in hand in the work of the Ecuadorian Adoum, a leading figure of the Latin American neo-avant-garde who wrote his verses in what he called \'postspanish\'.');
+(8, 'The Hobbit', 'JRR. Tolkien', 2000, 1500, 1, '8.jpg', 'Blurring genre boundaries, Cârneci\'s debut novel brings to life a mesmerizing landscape of female desire and frustration. As the fragmented yet captivating narrative examines the twin subjects of love and loss, readers are confronted with the ultimate feminist agenda of a woman’s right to choose, together with the numerous hurdles and dilemmas '),
+(9, 'Solar Bones', 'Mike McCormack', 2000, 1000, 5, '9.jpg', 'Set in a deserted Rome during a hot and melancholy August, this 1973 novel now touted as a classic rehashes a familiar theme within Italian literature and film: a country and art of malaise. At turns beautiful and frustrating, it ultimately feels like a pastiche of the works it attempts to keep company.'),
+(10, 'The Book of God', 'Walter', 2000, 2000, 2, '10.jpeg', 'Linguistic experimentation and political rebellion went hand in hand in the work of the Ecuadorian Adoum, a leading figure of the Latin American neo-avant-garde who wrote his verses in what he called \'postspanish\'.');
 
 -- --------------------------------------------------------
 
@@ -115,8 +115,7 @@ CREATE TABLE `highlights` (
 INSERT INTO `highlights` (`hid`, `book_id`) VALUES
 (5, 9),
 (6, 7),
-(12, 8),
-(13, 10);
+(12, 8);
 
 -- --------------------------------------------------------
 

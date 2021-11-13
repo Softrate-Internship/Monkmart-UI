@@ -24,6 +24,8 @@
     <!-- Custom StyleSheet -->
     <link rel="stylesheet" href="styles.css" />
 
+    <link rel="stylesheet" href="order.css" />
+
     <title>Monk mart</title>
 </head>
 
@@ -42,7 +44,7 @@
                         <img src="images\mms.png" width="200" height="50">
                     </div>
                     <div class="nav__menu">
-                        <div class="menu__top" style="background-color:white">
+                            <div class="menu__top" style="background-color:white">
                                 <span class="nav__category"><img src="images\mms.png" width="250" height="50"></span>
                                 <a href="#" class="close__toggle">
                                     <svg>
@@ -55,7 +57,7 @@
                                 <a href="index.php" class="nav__link">Home</a>
                             </li>
                             <li class="nav__item">
-                                <a href="orders.php" class="nav__link">ORDERS</a>
+                                <a href="orders.php" class="nav__link">Orders</a>
                             </li>
                             
                         </ul>
@@ -84,121 +86,141 @@
                                 </svg>
                             </a>
                         </li>
-                        <li class="page__title">Returns</li>
+                        <li class="page__title">Orders</li>
                     </ul>
                 </div>
             </div>
         </div>
     </header>
+</body>
+    <!-- Go To -->
 
-    <main id="main">
-        <section class="section cart__area">
-            <div class="container">
-                <div class="responsive__cart-area">
-                    <form class="cart__form">
-                        <div class="cart__table table-responsive">
-                            <table width="100%" class="table" style="text-align:center">
-                                <thead style="text-align:center">
-                                    <tr>
-                                        <th style="text-align:center">PRODUCT</th>
-                                        <th style="text-align:center">NAME</th>
-                                        <th style="text-align:center">UNIT PRICE</th>
-                                        <th style="text-align:center">QUANTITY</th>
-                                        <th style="text-align:center">TOTAL</th>
-                                        <th style="text-align:center">DATE & TIME</th>
-                                        <th style="text-align:center">STATUS</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php 
-                                    $uid = $_SESSION['id'];
-                                $sql = "SELECT * FROM book_history WHERE user_id=$uid AND (status='Delivered' OR status='aReturned') ORDER BY delivery_date DESC";
-                                $result = $conn->query($sql);
-                                $total = 0;
-                                $trows = 0;
-                                if($result->num_rows>0){
-                                    while($row = $result->fetch_assoc()){
-                                        date_default_timezone_set("Asia/kolkata");
-                                            $currentDate = date("Y-m-d");
-                                            $currentTime = date("H:i:s");
-                                            $date=date_create($currentDate);
-                                            date_sub($date,date_interval_create_from_date_string("7 days"));
-                                            $now = date_format($date,"Y-m-d").' '.$currentTime;
-                                            $now = new DateTime($now);
-                                            $bookdate = $row['delivery_date'];
-                                            $datetime1 = new DateTime($bookdate);
-                                            if($now<=$datetime1){
-                                                $trows++;
-                                        
-                                ?>
-                                    <tr style="text-align:center">
-                                        <td class="product__thumbnail">
-                                            <a >
-                                                <img src="book-images\<?php echo $row['image']; ?>" onerror="this.src='book-images/notfound.png'">
-                                            </a>
-                                        </td>
-                                        <td class="product__name">
-                                            <a href="#"><?php echo $row['book_name']; ?></a>
-                                            <br><br>
-                                            <small><?php echo $row['author']; ?></small>
-                                        </td>
-                                        <td class="product__price">
-                                            <div class="price">
-                                                <span class="new__price"><?php echo $row['price']; ?> ₹</span>
-                                            </div>
-                                        </td>
-                                        <td class="product__quantity">
-                                            <div class="input-counter">
-                                                <div>
-                                                   
-                                                    <input type="text" min="1" value="<?php echo $row['quantity']; ?>" max="10" class="counter-btn" disabled>
-                                                    
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="product__subtotal">
-                                            <div class="price">
-                                                <span class="new__price"><?php echo $row['quantity'] * $row['price']; ?> ₹</span>
-                                            </div>
-                                            
-                                        </td>
-                                        <td>
-                                            <?php echo $row['delivery_date']; ?> 
-                                        </td>
-                                        
-                                        <?php 
-                                        if($row['status']=="aReturned"){
-                                            ?>
-                                                <td>Return Requested</td>
-                                                <?php 
-                                        }
-                                         else { ?>
-                                                <td><button onclick="myFunction(<?php echo $row['id']; ?>)" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="width:80%;font-size:90%" class="btn btn-outline-danger">Return</button></td>
-                                            <?php }
-                                         ?>
-                                    </tr>
-                                <?php
-                                            }
-                                    }
-                                }
-                                if($trows==0){ ?>
-                                    <tr >
-                                        <td colspan="8" style="text-align:center">You dont have any orders to return</td>
-                                    </tr>
-                                <?php } 
-                                ?> 
-                                </tbody>
-                            </table>
+    <a href="#header" class="goto-top scroll-link">
+        <svg>
+            <use xlink:href="./images/sprite.svg#icon-arrow-up"></use>
+        </svg>
+    </a>
+
+    <!-- Glide Carousel Script -->
+    <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
+
+    <!-- Animate On Scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="./js/products.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/slider.js"></script>
+
+</body>
+
+</html>
+    <br>
+    <?php 
+        $rowval = 0;
+        $uid = $_SESSION['id'];
+        $sql = "SELECT * FROM book_history WHERE user_id=$uid AND (status='Delivered' OR status='aReturned') ORDER BY delivery_date DESC";
+        $result = $conn->query($sql);
+        $total = 0;
+        if($result->num_rows>0){
+        while($row = $result->fetch_assoc()){
+            date_default_timezone_set("Asia/kolkata");
+            $currentDate = date("Y-m-d");
+            $currentTime = date("H:i:s");
+            $date=date_create($currentDate);
+            date_sub($date,date_interval_create_from_date_string("7 days"));
+            $now = date_format($date,"Y-m-d").' '.$currentTime;
+            $now = new DateTime($now);
+            $bookdate = $row['delivery_date'];
+            $datetime1 = new DateTime($bookdate);
+            if($now<=$datetime1 || $row['status']=='aReturned'){
+                $rowval++;
+        ?>
+
+    <div class="order_wrapper">
+        <div class="order_container">
+            <div class="ordered_book_img">
+                <img src="book-images\<?php echo $row['image']; ?>" onerror="this.src='book-images/notfound.png'">
+            </div>
+            <div class="ordered_book_info">
+                <div class="order_info_cont">
+                    <div class="book_name" >
+                        <h2><?php echo $row['book_name']; ?></h2>
+                        <p style="text-align:center">- <?php echo $row['author']; ?></p>
+                    </div>
+                    <br>
+                    <div class="price_qty" style="margin-bottom:15px;">
+                        <div class="price" style="margin-bottom:15px;">
+                            <p>Price: <span><?php echo $row['price']; ?> ₹</span></p>
                         </div>
-                    </form>
+                        <div class="qty" style="margin-bottom:15px;">
+                            <p>Quantity: <span><?php echo $row['quantity']; ?></span></p>
+                        </div>
+                    </div>
+                    <div class="order_info">
+                        <div class="total">
+                            <button>
+                                Total - <?php echo $row['quantity'] * $row['price']; ?> ₹
+                            </button>
+                        </div>
+                        <br>
+                        <div class="qty" style="margin-bottom:10px;">
+                            <?php $date1=date_create(substr($row['date'],0,10)); ?>
+                            <p>Date: <span><?php echo date_format($date1,"d/m/Y"); ?></span></p>
+                        </div>
+                        <div class="qty">
+                            <p>Time <span><?php echo substr($row['date'],11); ?></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="final_info">
+                    <div class="trackId">
+                        <p>TRACK ID:</p>
+                    </div>
+                    <div class="trackId">
+                        <p><?php echo $row['track_id']; ?></p>
+                    </div>
+                    <br>
+                   <?php if($row['status']=="aReturned"){
+                        ?> 
+                    <div class="status">
+                        <p>Return Request</p>
+                    </div>
+                    <?php 
+                    }
+                     else {
+                     ?>
+                    <div class="status">
+                        <a onclick="myFunction(<?php echo $row['id']; ?>)" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><p>Return Book</p></a>
+                    </div>
+                    <?php } ?>                     
+                    <?php 
+                        } 
+                    ?>
                 </div>
             </div>
-        </section>
-        <script>
-                function myFunction(t){
-                    document.getElementById("oid").value = t;
-                }
-        </script>
+        </div>
+    </div>
+            <?php
+      }
+     }
+     ?>
+     <?php 
+        if($rowval==0) { ?>
+            <p style="border:1px solid grey; padding:20px;display: block;margin-left: auto;margin-right: auto;width: fit-content; min-width:50%;text-align:center">You dont have any orders to return.</p>
+            <?php 
+            }
+        ?>
+   
+<br>
+
+    <script>
+        function myFunction(t){
+            document.getElementById("oid").value = t;
+        }
+    </script>
+    <main id="main">
+        
 
         <!-- Facility Section -->
         <section class="facility__section section" id="facility">
@@ -244,30 +266,9 @@
         </section>
     </main>
 
+
     <?php include('footer.php') ?>
 
-    <!-- Go To -->
-
-    <a href="#header" class="goto-top scroll-link">
-        <svg>
-            <use xlink:href="./images/sprite.svg#icon-arrow-up"></use>
-        </svg>
-    </a>
-
-    <!-- Glide Carousel Script -->
-    <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
-
-    <!-- Animate On Scroll -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <!-- Custom JavaScript -->
-    <script src="./js/products.js"></script>
-    <script src="./js/index.js"></script>
-    <script src="./js/slider.js"></script>
-
-</body>
-
-</html>
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -291,6 +292,8 @@
     </div>
   </div>
 </div>
+
+
 
 
 

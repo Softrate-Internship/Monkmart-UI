@@ -28,6 +28,7 @@
 
     <!-- Custom StyleSheet -->
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="cart.css" />
 
     <title>Monk mart</title>
 </head>
@@ -59,6 +60,9 @@
                         <ul class="nav__list">
                             <li class="nav__item">
                                 <a href="index.php" class="nav__link">Home</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="user-books.php" class="nav__link">Books</a>
                             </li>
                             
                         </ul>
@@ -96,122 +100,119 @@
         </div>
     </header>
 
-    <main id="main">
-        <section class="section cart__area">
-            <div class="container">
-                <div class="responsive__cart-area">
-                    <form class="cart__form">
-                        <div class="cart__table table-responsive">
-                            <table width="100%" class="table">
-                                <thead>
-                                    <tr>
-                                        <th>PRODUCT</th>
-                                        <th>NAME</th>
-                                        <th>PRICE</th>
-                                        <th>QTY</th>
-                                        <th>TOTAL</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php 
-                                    $uid = $_SESSION['id'];
-                                $sql = "SELECT * FROM cart WHERE user_id=$uid";
-                                $result = $conn->query($sql);
-                                $total = 0;
-                                if($result->num_rows>0){
-                                    while($row = $result->fetch_assoc()){
-                                        $bid = $row['book_id'];
-                                        $sql1 = "SELECT * FROM books WHERE id = $bid";
-                                        $result1 = $conn->query($sql1);
-                                        $row1 = $result1->fetch_assoc();
-                                        $total+=$row1['price']*$row['quantity'];
-                                ?>
-                                    <tr>
-                                        <td class="product__thumbnail">
-                                            <a href="#">
-                                                <img src="book-images\<?php echo $row1['image']; ?>" alt="">
-                                            </a>
-                                        </td>
-                                        <td class="product__name">
-                                            <a href="#"><?php echo $row1['name']; ?></a>
-                                            <br><br>
-                                            <small><?php echo $row1['author']; ?></small>
-                                        </td>
-                                        <td class="product__price">
-                                            <div class="price">
-                                                <span class="new__price"><?php echo $row1['price']; ?> ₹</span>
-                                            </div>
-                                        </td>
-                                        <td class="product__quantity">
-                                            <div class="input-counter">
-                                                <div>
-                                                    <input type="text" min="1" value="<?php echo $row['quantity']; ?>" max="10" class="counter-btn" disabled>   
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="product__subtotal">
-                                            <div class="price">
-                                                <span class="new__price"><?php echo $row['quantity'] * $row1['price']; ?> ₹</span>
-                                            </div>
-                                            <a data-bs-target="#exampleModal2" data-bs-toggle="modal" onclick="myFunction(<?php echo $row['id']; ?>)" class="remove__cart-item">
-                                                <svg>
-                                                    <use xlink:href="./images/sprite.svg#icon-trash"></use>
-                                                </svg>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                
-                                <?php
-                                    }
-                                }
-                                else{ ?>
-                                    <tr >
-                                        <td colspan="8" style="text-align:center">You haven't added any yet!!</td>
-                                    </tr>
-                                <?php } 
-                                ?>
-                                </tbody>
-                            </table>
+    <!-- Go To -->
+
+    <a href="#header" class="goto-top scroll-link">
+        <svg>
+            <use xlink:href="./images/sprite.svg#icon-arrow-up"></use>
+        </svg>
+    </a>
+
+    <!-- Glide Carousel Script -->
+    <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
+
+    <!-- Animate On Scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="./js/products.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/slider.js"></script>
+
+</body>
+<br>
+
+</html>
+
+
+
+<div class="order_wrapper">
+<?php 
+$uid = $_SESSION['id'];
+$uid = $_SESSION['id'];
+$sql = "SELECT * FROM cart WHERE user_id=$uid";
+$result = $conn->query($sql);
+$total = 0;
+if($result->num_rows>0){
+    while($row = $result->fetch_assoc()){
+        $bid = $row['book_id'];
+        $sql1 = "SELECT * FROM books WHERE id = $bid";
+        $result1 = $conn->query($sql1);
+        $row1 = $result1->fetch_assoc();
+        $total+=$row1['price']*$row['quantity'];
+?>
+        <div class="order_container" style="margin-bottom:20px">
+            <div class="ordered_book_img">
+                <img src="book-images\<?php echo $row1['image']; ?>" alt="">
+            </div>
+            <div class="ordered_book_info">
+                <div class="order_info_cont">
+                    <br>
+                    <div class="book_name">
+                        <h2><?php echo $row1['name']; ?></h2>
+                        <p><?php echo $row1['author']; ?></p>
+                    </div>
+                    <br>
+                    <div class="price_qty">
+                        <div class="price">
+                            <p>Price: <span><?php echo $row1['price']; ?> ₹</span></p>
                         </div>
-                        <script>
-                            let bid = 0;
-                            function myFunction(t){
-                                bid = t;
-                            }
-                        </script> 
-                        <div class="cart-btns">
-                            <div class="continue__shopping">
-                                <a  href="user-books.php">Continue Shopping</a>
-                            </div>
-                            
+                        <br>
+
+                        <div class="qty">
+                            <p>Quantity: <span><?php echo $row['quantity']; ?></span></p>
                         </div>
-                        <?php if($total!=0){ ?>
-                        <div class="cart__totals" style="width:max-content;min-width:50%;border-radius:8px">
-                            <h3>Cart Totals</h3>
-                            <ul>
-                                <li>
-                                    Subtotal
-                                    <span class="new__price"><?php echo $total; ?> ₹</span>
-                                </li>
-                                <li>
-                                    Shipping
-                                    <span>Free</span>
-                                </li>
-                                <li>
-                                    Total
-                                    <span class="new__price"><?php echo $total; ?> ₹</span>
-                                </li>
-                            </ul>
-                            <a style="display:block;margin-left:auto;margin-right:auto;width:max-content" href="shipping.php">PROCEED TO CHECKOUT</a>
-                        </div>
-                        <?php 
-                        }
-                        ?>
-                    </form>
+                    </div>
+                    <br>
+                    <div class="final_info">
+                        <div class="total" style="display:inline">
+                                <p style="display:inline">Total : <?php echo $row['quantity'] * $row1['price']; ?> ₹</p>&nbsp;&nbsp;&nbsp;<a data-bs-target="#exampleModal2" data-bs-toggle="modal" onclick="myFunction(<?php echo $row['id']; ?>)" class="remove__cart-item"><i style="color:red;display:inline" class="fas fa-trash"></i>
+                            </a>
+                        </div>   
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+        <?php }
+        } ?>
+        </div> <?php 
+        if($result->num_rows==0) { ?>
+            <p style="border:1px solid grey; padding:20px;display: block;margin-left: auto;margin-right: auto;width: fit-content; min-width:50%;text-align:center">You havent added any yet.</p>
+            <?php 
+            }
+        ?>
+    
 
+<script>
+    let bid = 0;
+    function myFunction(t){
+    bid = t;
+    }
+</script> 
+
+<?php if($total!=0){ ?>
+    <div class="cart__totals" style="width:max-content;min-width:40%;border-radius:8px">
+        <h3>Cart Totals</h3>
+        <ul>
+            <li>
+                Subtotal
+                <span class="new__price"><?php echo $total; ?> ₹</span>
+            </li>
+            <li>
+                Shipping
+                <span>Free</span>
+            </li>
+            <li>
+                Total
+                <span class="new__price"><?php echo $total; ?> ₹</span>
+            </li>
+        </ul>
+        <a style="display:block;margin-left:auto;margin-right:auto;width:max-content"href="shipping.php">PROCEED TO CHECKOUT</a>
+        </div>
+    <?php } ?>
+<br>
+
+<main id="main">
         <!-- Facility Section -->
         <section class="facility__section section" id="facility">
             <div class="container">
@@ -256,30 +257,7 @@
         </section>
     </main>
 
-    <?php include('footer.php') ?>
-
-    <!-- Go To -->
-
-    <a href="#header" class="goto-top scroll-link">
-        <svg>
-            <use xlink:href="./images/sprite.svg#icon-arrow-up"></use>
-        </svg>
-    </a>
-
-    <!-- Glide Carousel Script -->
-    <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
-
-    <!-- Animate On Scroll -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <!-- Custom JavaScript -->
-    <script src="./js/products.js"></script>
-    <script src="./js/index.js"></script>
-    <script src="./js/slider.js"></script>
-
-</body>
-
-</html>
+<?php include('footer.php') ?>
 
 <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">

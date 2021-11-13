@@ -8,7 +8,9 @@ if(isset($_GET['sid'])){
   $currentTime = date("H:i:s");
   $timeStamp = $currentDate.' '.$currentTime;
   $sql = "UPDATE book_history SET status='Delivered',delivery_date='$timeStamp' WHERE id='$sid'";
-  $result = $conn->query($sql);
+  $result = $conn->query($sql);?>
+  <script>window.location.href="admin-home.php";</script>
+  <?php
 }
 ?>
 <!DOCTYPE html>

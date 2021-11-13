@@ -1,0 +1,152 @@
+.order_wrapper {
+    display: grid;
+    place-items: center;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 2fr));
+}
+
+.order_container {
+    width: 80%;
+    padding: 20px;
+    height: 350px;
+    background-image: linear-gradient(to right top, #b4cef6, #c5d2f1, #d2d7ec, #dcdce7, #e3e3e3);
+    display: flex;
+    justify-content: space-around;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.order_container:hover {
+    transition: all 0.4s ease-in-out;
+    transform: scale(1.02);
+}
+
+.ordered_book_img {
+    width: 250px;
+    height: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.ordered_book_img>img {
+    width: 260px;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 8px;
+    object-fit: contain
+}
+
+.ordered_book_info {
+    text-align: left;
+    display: flex;
+    justify-content: space-between
+}
+
+.book_name h2 {
+    font-weight: 600;
+}
+
+.price,
+.qty {
+    font-size: 18px;
+    font-weight: 600
+}
+
+.price span,
+.qty span {
+    font-weight: normal;
+}
+
+.total p {
+    background-color: black;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding: 7px 27px;
+    font-weight: 600;
+}
+
+.final_info {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+@media(max-width: 1536px) {
+    .order_wrapper {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .order_container {
+        padding: 10px
+    }
+}
+
+@media(max-width:968px) {
+    .order_wrapper {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .order_container {
+        padding: 10px;
+        width: 80%;
+        height: 350px;
+    }
+    .ordered_book_img {
+        width: 300px;
+        border-radius: 8px;
+        height: 350px;
+        overflow: hidden;
+        padding-left: 20px;
+    }
+    .ordered_book_img>img {
+        width: 300px;
+        border-radius: 8px;
+        height: 350px;
+        object-fit: contain
+    }
+}
+
+@media(max-width:658px) {
+    .order_wrapper {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .order_container {
+        padding: 10px;
+        width: 80%;
+        height: max-content;
+        display: block;
+        justify-content: center;
+    }
+    .ordered_book_img,
+    .ordered_book_img>img {
+        width: 100%;
+        border-radius: 8px;
+        height: 200px;
+        justify-content: center;
+        margin-left: -3px;
+    }
+    .ordered_book_info {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .book_name {
+        line-height: 10px
+    }
+    .price,
+    .qty,
+    .trackId {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 10px
+    }
+    .final_info {
+        line-height: 20px
+    }
+}
