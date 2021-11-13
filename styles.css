@@ -1416,8 +1416,9 @@ Testimonial
 }
 
 .testimonial__container {
-    height: 100%;
+    height: fit-content;
     padding: 1rem;
+    padding-bottom: 0px;
 }
 
 .testimonial__box {

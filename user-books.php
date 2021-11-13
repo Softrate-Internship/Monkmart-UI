@@ -6,7 +6,7 @@
     $sql11 = "SELECT * FROM books";
     if(isset($_POST['search'])){
         $search = $_POST['search'];
-        $sql11 = "SELECT * FROM books WHERE name LIKE '%$search%'";
+        $sql11 = "SELECT * FROM books WHERE name LIKE '%sola%'";
     }
 if(isset($_SESSION['id'])){
     $flag = 1;
@@ -134,7 +134,7 @@ if(isset($_SESSION['id'])){
               </svg>
                         </a>
 
-                        <a href="cart.php" class="icon__item">
+                        <a href="my-cart.php" class="icon__item">
                             <svg class="icon__cart">
                                 <use xlink:href="./images/sprite.svg#icon-shopping-basket"></use>
                             </svg>
@@ -156,6 +156,22 @@ if(isset($_SESSION['id'])){
                     }
                     ?>
                 </nav>
+            </div>
+        </div>
+        <div class="page__title-area">
+            <div class="container">
+                <div class="page__title-container">
+                    <ul class="page__titles">
+                        <li>
+                            <a href="index.php">
+                                <svg>
+                                    <use xlink:href="./images/sprite.svg#icon-home"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="page__title">Books</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </header>
@@ -193,8 +209,7 @@ if(isset($_SESSION['id'])){
     <div class="category__container aos-init aos animate" data-aos="fade-up" data-aos-duration="1200" style="height:max-content">
                 <div class="roww">
                 <?php 
-                $sql = "SELECT * FROM books ";
-                $result = $conn->query($sql);
+                $result = $conn->query($sql11);
                 if($result->num_rows>0){
                     while($row = $result->fetch_assoc()){
                 ?>

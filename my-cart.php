@@ -102,7 +102,7 @@
                     <div class="nav__icons">
                         
 
-                        <a href="cart.php" class="icon__item">
+                        <a class="icon__item">
                             <svg class="icon__cart">
                                 <use xlink:href="./images/sprite.svg#icon-shopping-basket"></use>
                             </svg>

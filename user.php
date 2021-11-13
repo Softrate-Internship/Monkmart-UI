@@ -93,7 +93,7 @@
 
                     <div class="nav__icons">
                        
-                        <a href="cart.php" class="icon__item">
+                        <a href="my-cart.php" class="icon__item">
                             <svg class="icon__cart">
                                 <use xlink:href="./images/sprite.svg#icon-shopping-basket"></use>
                             </svg>
@@ -138,7 +138,7 @@
                             <div class="product__picture" id="product__picture">
                                 <!-- <div class="rect" id="rect"></div> -->
                                 <div class="picture__container">
-                                    <img style="padding:10%" src="./user-images/<?php echo $row['image']; ?>" id="pic" onerror="this.src='user-images/notfound.jpeg'" />
+                                    <img style="padding:10%;border-radius:100%" src="./user-images/<?php echo $row['image']; ?>" id="pic" onerror="this.src='user-images/notfound.jpeg'" />
                                 </div>
                             </div>
                             <div class="zoom" id="zoom"></div>

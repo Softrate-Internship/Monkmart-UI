@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
     <!-- Custom StyleSheet -->
     <link rel="stylesheet" href="styles.css" />
 
@@ -102,7 +105,7 @@
                     </div>
 
                     <div class="nav__icons">
-                        <a href="cart.php" class="icon__item">
+                        <a href="my-cart.php" class="icon__item">
                             <svg class="icon__cart">
                                 <use xlink:href="./images/sprite.svg#icon-shopping-basket"></use>
                             </svg>
@@ -112,7 +115,6 @@
                 </nav>
             </div>
         </div>
-
         <div class="page__title-area">
             <div class="container">
                 <div class="page__title-container">
@@ -160,6 +162,7 @@
         $sql = "SELECT * FROM book_history WHERE user_id=$uid ORDER BY date DESC, status DESC";
          $result = $conn->query($sql);
         $total = 0;
+        $p = 1;
         if($result->num_rows>0){
         while($row = $result->fetch_assoc()){
         ?>
@@ -210,8 +213,9 @@
                         <p>-</p>
                     </div>
                     <?php } else{ ?>
-                    <div class="trackId">
-                        <p><?php echo $row['track_id']; ?></p>
+                    <div class="trackId" style="display:inline">
+                        <p style="display:inline" id="p<?php echo $p; ?>"><?php echo $row['track_id']; ?></p>
+                        <a href="#" style="display:inline;margin-left:10px" onclick="copyToClipboard('#p<?php echo $p++; ?>')"><i class="far fa-clipboard"></i></a>
                     </div>
                     <?php } ?>
                     <br>
@@ -276,6 +280,13 @@
     <script>
         function myFunction(t){
             document.getElementById("oid").value = t;
+        }
+        function copyToClipboard(element) {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(element).text()).select();
+            document.execCommand("copy");
+            $temp.remove();
         }
     </script>
 

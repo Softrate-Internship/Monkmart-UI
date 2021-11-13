@@ -33,5 +33,5 @@
     $_SESSION['cart_total'] = 0;
 ?>
 <script>
-    window.location.href = 'orders.php';
+    window.location.href = 'my-orders.php';
 </script>

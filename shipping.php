@@ -47,6 +47,10 @@
                 color: var(--white);
                 border: 1px solid var(--black);
             }
+            body{
+                background-color:black;
+        /* 003366 */
+            }
         </style>
 </head>
 

@@ -92,17 +92,17 @@ if(isset($_SESSION['id'])){
                 <div class="footer-top__box left1" >
                     <h3 style="margin-top:20px">INFORMATION</h3>
                     <a href="index.php" style="margin-top:20px">About Us</a>
-                    <a href="tc.php">Terms & Conditions</a>
-                    <a href="pp.php">Privacy Policy</a>
-                    <a href="sp.php">Shipping Policy</a>
-                    <a href="rp.php">Return Policy</a>
+                    <a href="terms-and-conditions.php">Terms & Conditions</a>
+                    <a href="privacy-policy.php">Privacy Policy</a>
+                    <a href="shipping-policy.php">Shipping Policy</a>
+                    <a href="return-policy.php">Return Policy</a>
                 </div>
                 <div class="footer-top__box left2" >
                     <h3 style="margin-top:20px">MY ACCOUNT</h3>
-                    <a style="margin-top:20px" <?php if($flag==1){ ?> href="index.php" <?php } else{ ?> href="#" <?php } ?> >Home</a>
-                    <a <?php if($flag==1){ ?> href="user.php" <?php } else{ ?> href="#" <?php } ?>>My Profile</a>
-                    <a <?php if($flag==1){ ?> href="cart.php" <?php } else{ ?> href="#" <?php } ?>>Wish List</a>
-                    <a <?php if($flag==1){ ?> href="history.php" <?php } else{ ?> href="#" <?php } ?>>Orders</a>
+                    <a style="margin-top:20px" href="index.php" >Home</a>
+                    <a href="user.php">My Profile</a>
+                    <a href="cart.php">My Cart</a>
+                    <a href="history.php">Orders</a>
                     <a href="index.php#news">News</a>
                 </div>
                 <div class="footer-top__box" >
@@ -142,11 +142,11 @@ if(isset($_SESSION['id'])){
             </div>
             <div class="copyrights">
                 <div style="display:inline;display:block;margin-left:auto;margin-right:auto;width:fit-content">
-                    <a class="abc" style="margin-left:0px" href="https://www.instagram.com/" onMouseOver="this.style.color='rgba(201,0,129,255)'" onMouseOut="this.style.color='grey'" target="_blank"><i class="fab fa-instagram fa-1x"></i></a>
-                    <a class="abc" href="https://www.facebook.com/" onMouseOver="this.style.color='rgba(25,119,243,255)'" onMouseOut="this.style.color='grey'" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a class="abc" href="https://twitter.com/" onMouseOver="this.style.color='rgba(32,161,242,255)'" onMouseOut="this.style.color='grey'" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a class="abc" href="https://linkedin.com/" onMouseOver="this.style.color='rgba(14,122,182,255)'" onMouseOut="this.style.color='grey'" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a class="abc" href="https://youtube.com/" onMouseOver="this.style.color='rgba(255,3,1,255)'" onMouseOut="this.style.color='grey'" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a class="abc" style="margin-left:0px" href="https://instagram.com/monkmartglobal" onMouseOver="this.style.color='rgba(201,0,129,255)'" onMouseOut="this.style.color='grey'" target="_blank"><i class="fab fa-instagram fa-1x"></i></a>
+                    <a class="abc" href="https://www.facebook.com/monkmartglobal/" onMouseOver="this.style.color='rgba(25,119,243,255)'" onMouseOut="this.style.color='grey'" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a class="abc" href="https://twitter.com/monkmartglobal" onMouseOver="this.style.color='rgba(32,161,242,255)'" onMouseOut="this.style.color='grey'" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a class="abc" href="https://www.linkedin.com/company/monk-mart" onMouseOver="this.style.color='rgba(14,122,182,255)'" onMouseOut="this.style.color='grey'" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a class="abc" href="https://youtube.com/channel/UCX4J5g4hCSbZe2Z0LsLyq-Q" onMouseOver="this.style.color='rgba(255,3,1,255)'" onMouseOut="this.style.color='grey'" target="_blank"><i class="fab fa-youtube"></i></a>
                 </div>
                 <br>
                 <p>© 2021 MonkMart. All Rights Reserved.   </p>

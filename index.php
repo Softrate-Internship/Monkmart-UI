@@ -139,7 +139,7 @@ if(isset($_SESSION['id'])){
                             }
                             else{ ?>
                             <li class="nav__item">
-                                <a href="orders.php" class="nav__link ">Orders</a>
+                                <a href="my-orders.php" class="nav__link ">Orders</a>
                             </li>
 
                             <li class="nav__item">
@@ -167,7 +167,7 @@ if(isset($_SESSION['id'])){
                             </svg>
                         </a>
 
-                        <a href="cart.php" class="icon__item">
+                        <a href="my-cart.php" class="icon__item">
                             <svg class="icon__cart">
                                 <use xlink:href="./images/sprite.svg#icon-shopping-basket"></use>
                             </svg>
@@ -220,7 +220,7 @@ if(isset($_SESSION['id'])){
                             <div class="collection__data">
                                 <h4 style="text-align:center;font-size:120%"><?php echo $rowa['content']; ?></h4>
                         
-                                <a style="display:block;margin-left:auto;margin-right:auto;width:fit-content;min-width:50%;text-align:center" target="_blank" href="<?php echo $rowa['link']; ?>">VIEW</a>
+                                <a style="display:block;margin-left:auto;margin-right:auto;width:fit-content;min-width:50%;text-align:center" target="_blank" href="<?php echo $rowa['link']; ?>"><?php echo $rowa['button']; ?></a>
                             </div>
                         </div>
                     </div>
@@ -233,7 +233,7 @@ if(isset($_SESSION['id'])){
                             <div class="collection__data">
                                 <h4 style="text-align:center;font-size:120%"><?php echo $rowb['content']; ?></h4>
                         
-                                <a style="display:block;margin-left:auto;margin-right:auto;width:fit-content;min-width:50%;text-align:center" target="_blank" href="<?php echo $rowb['link']; ?>">VIEW</a>
+                                <a style="display:block;margin-left:auto;margin-right:auto;width:fit-content;min-width:50%;text-align:center" target="_blank" href="<?php echo $rowb['link']; ?>"><?php echo $rowb['button']; ?></a>
                             </div>
                         </div>
                     </div>
@@ -352,7 +352,7 @@ if(isset($_SESSION['id'])){
 
             <!-- Testimonial Section -->
             <section class="section testimonial" id="testimonial">
-                <div class="testimonial__container">
+                <div class="testimonial__container" style="height: auto;">
                     <div class="glide" id="glide_4">
                         <div class="glide__track" data-glide-el="track">
                             <ul class="glide__slides">
@@ -364,7 +364,7 @@ if(isset($_SESSION['id'])){
                                         <p>I was so excited by seeing the products in monkmart. The word MONK denotes being simple likewise the process of ordering products in monkmart is very very simple . I suggest everyone to order your favourite products here .</p>
                                         <div class="client__info">
                                             <h3>Yugendar.N.M</h3>
-                                            <span>Kumara Rani Meena Muthiah College</span>
+                                            
                                         </div>
                                     </div>
                                 </li>
@@ -376,7 +376,7 @@ if(isset($_SESSION['id'])){
                                         <p>Generally, I like personal development books so much and when I searched for such books at an affordable price I came to know this site and bought an amazing combo of 3 books from here at very low cost . Even many exciting offers are available here frequently .</p>
                                         <div class="client__info">
                                             <h3>Indra</h3>
-                                            <span>Rajalakshmi Engineering College</span>
+                                            
                                         </div>
                                     </div>
                                 </li>
@@ -389,7 +389,7 @@ if(isset($_SESSION['id'])){
 </p>
                                         <div class="client__info">
                                             <h3>Kishore</h3>
-                                            <span>SRM Institute of Technology</span>
+                                            
                                         </div>
                                     </div>
 
@@ -402,7 +402,7 @@ if(isset($_SESSION['id'])){
                                         <p>Monkmart delivered my product at a very fast rate within very few days from the date I ordered it. So they are very good in delivery service. Super wide collection of books and bestsellers are available here and i find this site to be very helpful to buy my favorite books</p>
                                         <div class="client__info">
                                             <h3>Keerthi.U</h3>
-                                            <span>Sairam Institute of Technology</span>
+                                            
                                         </div>
                                     </div>
                                 </li>
@@ -474,7 +474,7 @@ if(isset($_SESSION['id'])){
                             <p>Subscribe to our newsletter to be notified about Monkmart’s upcoming offers ,<br> new launches and giveaways !
                             </p>
                         </div>
-                        <?if(isset($_GET['subs'])){ ?>
+                        <?php if(isset($_GET['subs'])){ ?>
                             <p>Subscribed</p>
                         <?php } else { ?>
                         <form method="POST">

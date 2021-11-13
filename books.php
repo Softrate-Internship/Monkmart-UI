@@ -12,7 +12,7 @@ if(isset($_GET['del_id'])){
     $sql11 = "SELECT * FROM books";
     if(isset($_POST['search'])){
         $search = $_POST['search'];
-        $sql11 = "SELECT * FROM books WHERE name LIKE '%$search%'";
+        $sql11 = "SELECT * FROM books WHERE name LIKE '%$search%';";
     }
 ?>
 <!DOCTYPE html>
