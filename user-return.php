@@ -211,7 +211,7 @@
                             <p>Date: <span><?php echo date_format($date1,"d/m/Y"); ?></span></p>
                         </div>
                         <div class="qty">
-                            <p>Time <span><?php echo substr($row['date'],11); ?></span></p>
+                            <p>Time: <span><?php echo substr($row['date'],11); ?></span></p>
                         </div>
                     </div>
                 </div>
@@ -221,7 +221,8 @@
                     </div>
                     <div class="trackId" style="display:inline">
                         <p style="display:inline" id="p<?php echo $p; ?>"><?php echo $row['track_id']; ?></p>
-                        <a style="display:inline;margin-left:10px" onclick="copyToClipboard('#p<?php echo $p++; ?>')"><i class="far fa-clipboard"></i></a>
+                        <p style="display:inline;margin-left:10px" id="copied<?php echo $p; ?>" ><a href="#"  onclick="copyToClipboard('#p<?php echo $p; ?>'); change('copied<?php echo $p; ?>')"><i class="far fa-copy"></i></a></p>
+                        <?php $p++; ?>
                     </div>
                     <br>
                    <?php if($row['status']=="aReturned"){
@@ -267,6 +268,9 @@
             $temp.val($(element).text()).select();
             document.execCommand("copy");
             $temp.remove();
+        }
+        function change(t){
+            document.getElementById(t).innerHTML = "<p style=\"font-size:10px;display:inline;\">copied</p>";
         }
     </script>
     <main id="main">
