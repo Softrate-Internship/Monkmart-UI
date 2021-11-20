@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 13, 2021 at 12:58 AM
+-- Generation Time: Nov 20, 2021 at 12:16 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.24
 
@@ -43,10 +43,10 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`id`, `name`, `author`, `ndprice`, `price`, `quantity`, `image`, `description`) VALUES
-(7, 'Olive Again', 'Elizabeth Strout', 3000, 2800, 0, '7.jpg', 'The aim of Think Like a Monk is to help individuals apply a monk mindset to their lives. Think Like a Monk shows you how to clear the roadblocks to your potential by overcoming negative thoughts, accessing stillness, and a creating true purpose to your goal.\n\n'),
-(8, 'The Hobbit', 'JRR. Tolkien', 2000, 1500, 1, '8.jpg', 'Blurring genre boundaries, Cârneci\'s debut novel brings to life a mesmerizing landscape of female desire and frustration. As the fragmented yet captivating narrative examines the twin subjects of love and loss, readers are confronted with the ultimate feminist agenda of a woman’s right to choose, together with the numerous hurdles and dilemmas '),
-(9, 'Solar Bones', 'Mike McCormack', 2000, 1000, 5, '9.jpg', 'Set in a deserted Rome during a hot and melancholy August, this 1973 novel now touted as a classic rehashes a familiar theme within Italian literature and film: a country and art of malaise. At turns beautiful and frustrating, it ultimately feels like a pastiche of the works it attempts to keep company.'),
-(10, 'The Book of God', 'Walter', 2000, 2000, 2, '10.jpeg', 'Linguistic experimentation and political rebellion went hand in hand in the work of the Ecuadorian Adoum, a leading figure of the Latin American neo-avant-garde who wrote his verses in what he called \'postspanish\'.');
+(7, 'Olive Again', 'Elizabeth Strout', 3000, 2800, 6, '7.jpg', 'The aim of Think Like a Monk is to help individuals apply a monk mindset to their lives. Think Like a Monk shows you how to clear the roadblocks to your potential by overcoming negative thoughts, accessing stillness, and a creating true purpose to your goal.\n\n'),
+(8, 'The Hobbit', 'JRR. Tolkien', 2000, 1500, 0, '8.jpg', 'Blurring genre boundaries, Cârneci\'s debut novel brings to life a mesmerizing landscape of female desire and frustration. As the fragmented yet captivating narrative examines the twin subjects of love and loss, readers are confronted with the ultimate feminist agenda of a woman’s right to choose, together with the numerous hurdles and dilemmas '),
+(9, 'Solar Bones', 'Mike McCormack', 2000, 1000, 0, '9.jpg', 'Set in a deserted Rome during a hot and melancholy August, this 1973 novel now touted as a classic rehashes a familiar theme within Italian literature and film: a country and art of malaise. At turns beautiful and frustrating, it ultimately feels like a pastiche of the works it attempts to keep company.'),
+(10, 'The Book of God', 'Walter', 2000, 2000, 4, '10.jpeg', 'Linguistic experimentation and political rebellion went hand in hand in the work of the Ecuadorian Adoum, a leading figure of the Latin American neo-avant-garde who wrote his verses in what he called \'postspanish\'.');
 
 -- --------------------------------------------------------
 
@@ -73,6 +73,14 @@ CREATE TABLE `book_history` (
   `reason` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `book_history`
+--
+
+INSERT INTO `book_history` (`id`, `user_id`, `user_name`, `address`, `phone`, `book_name`, `author`, `image`, `price`, `quantity`, `date`, `track_id`, `link`, `status`, `delivery_date`, `reason`) VALUES
+(1, 2, 'Annamalai', '13/92 Narayan Street Royapettah, Chennai 600028', '9952075472', 'Solar Bones', 'Mike McCormack', '9.jpg', 1000, 1, '2021-11-13 12:00:27', '123456', 'https://www.indiapost.gov.in/MBE/Pages/Content/Speed-Post.aspx', 'Delivered', '2021-11-13 12:01:58', 'Torn'),
+(3, 2, 'Annamalai', '13/92 Narayan Street Royapettah, Chennai 600028', '9952075472', 'The Book of God', 'Walter', '10.jpeg', 2000, 1, '2021-11-13 12:44:50', '11111', 'https://www.indiapost.gov.in/MBE/Pages/Content/Speed-Post.aspx', 'Ordered', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -86,6 +94,14 @@ CREATE TABLE `cart` (
   `quantity` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `book_id`, `quantity`) VALUES
+(5, 2, 7, 1),
+(6, 2, 10, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -96,6 +112,13 @@ CREATE TABLE `forgotPassword` (
   `id` int(10) NOT NULL,
   `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `forgotPassword`
+--
+
+INSERT INTO `forgotPassword` (`id`, `email`) VALUES
+(1, 'imemyselfanna@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -115,7 +138,8 @@ CREATE TABLE `highlights` (
 INSERT INTO `highlights` (`hid`, `book_id`) VALUES
 (5, 9),
 (6, 7),
-(12, 8);
+(12, 8),
+(16, 10);
 
 -- --------------------------------------------------------
 
@@ -158,7 +182,7 @@ CREATE TABLE `popup` (
 
 INSERT INTO `popup` (`id`, `content`, `button`, `link`, `image`) VALUES
 (1, 'Enjoy our exclusive Diwali offers.', 'Explore', 'http://localhost/Monkmart/index.php#buy', 'popup1.jpeg'),
-(2, 'Enjoy our ebooks facility!!', 'View', 'https://www.ebooks.com/en-in/', 'popup2.jpeg'),
+(2, 'Enjoy our ebooks facility!!', 'Download', 'https://www.ebooks.com/en-in/', 'popup2.png'),
 (3, 'Track your shipments!!', 'Track', 'http://localhost/Monkmart/orders.php', 'popup3.png');
 
 -- --------------------------------------------------------
@@ -175,6 +199,13 @@ CREATE TABLE `reviews` (
   `review` text NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`rid`, `user_id`, `book_id`, `rating`, `review`, `date`) VALUES
+(1, 2, 9, 4, 'Good.', '2021-11-13');
 
 -- --------------------------------------------------------
 
@@ -320,25 +351,25 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT for table `book_history`
 --
 ALTER TABLE `book_history`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `forgotPassword`
 --
 ALTER TABLE `forgotPassword`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `highlights`
 --
 ALTER TABLE `highlights`
-  MODIFY `hid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `hid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -356,7 +387,7 @@ ALTER TABLE `popup`
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `rid` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `rid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `slider`
