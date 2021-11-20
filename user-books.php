@@ -223,6 +223,9 @@ if(isset($_SESSION['id'])){
                     <div class="card_cont">
                         <div class="book_img">
                             <img src="./book-images/<?php echo $row['image']; ?>" alt="">
+                            <div class="cost_in_img">
+                                <p style="margin-top:10px"><?php echo $row['price']; ?> ₹</p>
+                            </div>
                         </div>
                         <div class="book_info">
                             <div class="book_title">
@@ -230,7 +233,7 @@ if(isset($_SESSION['id'])){
                                 <p><?php echo $row['author']; ?></p>
                             </div>
                             <div class="desc">
-                                <p><?php echo substr($row['description'],0,200); ?>...</p>
+                                <p><?php echo substr($row['description'],0,150); ?>...</p>
                             </div>
                             <div class="cost">
                             <?php if($row['ndprice'] != $row['price']){ ?>

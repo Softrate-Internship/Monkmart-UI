@@ -1,0 +1,127 @@
+/* Facility */
+
+.facilty_collection {
+    width: 100%;
+}
+
+.facility_cont {
+    display: flex;
+    justify-content: space-around;
+}
+
+.facility_box {
+    width: max-width;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f1f1f1;
+    border-radius: 8px
+}
+
+.facility_box_img img {
+    border-radius: 8px;
+    width: 200px;
+}
+
+.facility_box_info {
+    text-align: center;
+    padding-left: 8px;
+}
+
+.facility_box_info a {
+    padding: 7px 27px;
+    text-decoration: none;
+    background-color: #2b1f4d;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    border: 2px solid #2b1f4d;
+}
+
+.facility_box_info a:hover {
+    transition: all 0.3s ease-in-out;
+    color: #2b1f4d;
+    background-color: white;
+}
+
+@media(max-width:768px) {
+    .facility_box {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0px;
+        text-align: center
+    }
+    .facility_box_img {
+        border-radius: 8px;
+        width: 200px;
+    }
+    .facility_box_img img {
+        border-radius: 8px;
+        width: 60%;
+    }
+}
+
+
+/*Free Shipping , money back - section  */
+
+.collection_content {
+    width: max-width;
+    background-color: #f1f1f1;
+    padding: 20px;
+    height: max-content;
+    border-radius: 8px
+}
+
+.collection_cont_wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px
+}
+
+.collection_info {
+    border-radius: 8px;
+    text-align: center;
+    display: block;
+    padding: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.collection_info_img svg {
+    border-radius: 40%;
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    height: 10;
+    width: 10;
+    padding:5%;
+    background-color: #ffffff
+}
+
+.collection_info:hover .collection_info_img>svg {
+    transition: all 250ms ease-in-out;
+    transform: scale(1.1);
+}
+
+@media(max-width:968px) {
+    .collection_cont_wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px
+    }
+}
+
+@media(max-width:686px) {
+    .collection_content {
+        padding: 8px;
+        width: 100vw;
+    }
+    .collection_cont_wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+        padding: 8px;
+    }
+}

@@ -37,6 +37,7 @@ if(isset($_SESSION['id'])){
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="card.css" />
     <link rel="stylesheet" href="Login.css" />
+    <link rel="stylesheet" href="home.css" />
 
     <title>Monk mart</title>
     <style>
@@ -131,7 +132,7 @@ if(isset($_SESSION['id'])){
                                 </a>
                             </li>
                             <li class="nav__item">
-                                <a href="#" type="button" class="nav__link scroll-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+                                <a href="#" class="nav__link scroll-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
                                     SIGNUP
                                 </a>
                             </li>
@@ -209,35 +210,32 @@ if(isset($_SESSION['id'])){
         $resultb = $conn->query($sqlb);
         $rowb = $resultb->fetch_assoc();
         ?>
-        <section id="collection" class="section collection" style="margin-bottom:2%">
-                <div class="collection__container">
-                    <div class="collection__box  container11" style="border:none">
-                        <div class="img__container">
-                            <img class="collection_02" src="./images/<?php echo $rowa['image']; ?>" alt="">
+        <section>
+            <div class="facilty_collection" style="margin-top:50px;margin-bottom:2%">
+                <div class="facility_cont">
+                    <div class="facility_box">
+                        <div class="facility_box_img">
+                            <img src="images/<?php echo $rowa['image']; ?>" alt="">
                         </div>
-                        <div class="collection__content">
-                            
-                            <div class="collection__data">
-                                <h4 style="text-align:center;font-size:120%"><?php echo $rowa['content']; ?></h4>
-                        
-                                <a style="display:block;margin-left:auto;margin-right:auto;width:fit-content;min-width:50%;text-align:center" target="_blank" href="<?php echo $rowa['link']; ?>"><?php echo $rowa['button']; ?></a>
-                            </div>
+                        <div class="facility_box_info">
+                            <h4><?php echo $rowa['content']; ?></h4>
+                            <br>
+                            <a href="<?php echo $rowa['link']; ?>"><?php echo $rowa['button']; ?></a>
                         </div>
                     </div>
-                    <div class="collection__box  container11" style="border:none">
-                        <div class="img__container">
-                            <img class="collection_02" src="./images/<?php echo $rowb['image']; ?>" alt="">
+                    <div class="facility_box">
+                        <div class="facility_box_img">
+                            <img src="images/<?php echo $rowb['image']; ?>" alt="">
                         </div>
-                        <div class="collection__content">
-                            
-                            <div class="collection__data">
-                                <h4 style="text-align:center;font-size:120%"><?php echo $rowb['content']; ?></h4>
-                        
-                                <a style="display:block;margin-left:auto;margin-right:auto;width:fit-content;min-width:50%;text-align:center" target="_blank" href="<?php echo $rowb['link']; ?>"><?php echo $rowb['button']; ?></a>
-                            </div>
+                        <div class="facility_box_info">
+                            <h4><?php echo $rowb['content']; ?></h4>
+                            <br>
+                            <a href="<?php echo $rowb['link']; ?>"><?php echo $rowb['button']; ?></a>
                         </div>
                     </div>
-            </section>
+                </div>
+            </div>
+        </section>
 
     <!-- Main -->
     <main id="main">
@@ -251,99 +249,105 @@ if(isset($_SESSION['id'])){
                         </div>
                     </div>
             <br>
-            <div class="category__container aos-init aos animate" data-aos="fade-up" data-aos-duration="1200" style="height:max-content">
-                <div class="roww">
-                <?php 
+            <?php 
                 $sql = "SELECT highlights.book_id, books.* FROM highlights INNER JOIN books WHERE books.id = highlights.book_id ";
                 $result = $conn->query($sql);
                 if($result->num_rows>0){
                     while($row = $result->fetch_assoc()){
-                ?>
-                <div class="card product category__products" >
-                <?php if($row['ndprice'] != $row['price']){ 
-                        $dis = (int)round(($row['ndprice']-$row['price'])/$row['ndprice']*100); ?>
-                    <div class="discount">
-                        <p><?php echo $dis; ?>%</p>
-                    </div>
-                    <?php } ?>
-                    <div class="card_cont">
-                        <div class="book_img">
-                            <img src="./book-images/<?php echo $row['image']; ?>" alt="">
-                        </div>
-                        <div class="book_info">
-                            <div class="book_title">
-                                <h2 style="margin-top:10px;"><?php echo $row['name']; ?></h2>
-                                <p><?php echo $row['author']; ?></p>
-                            </div>
-                            <div class="desc">
-                                <p><?php echo substr($row['description'],0,200); ?>...</p>
-                            </div>
-                            <div class="cost">
-                            <?php if($row['ndprice'] != $row['price']){ ?>
-                                <div class="old_cost">
-                                    <p><?php echo $row['ndprice']; ?> ₹</p>
-                                </div>
-                                <?php } ?>
-                                <div class="discount_price">
-                                    <p><?php echo $row['price']; ?> ₹</p>
-                                </div>
-                            </div>
-                            <?php if($row['quantity']==0){ ?>
-                            <h4 style="color:red">Out of Stock</h4>
-                        <?php } else { ?>
-                            <h4 style="color:green"><?php echo $row['quantity']; ?> left in stock</h4>
-                            <?php } ?>
-                            <button class="view-btn">
-                                <a href="product.php?id=<?php echo $row['id']; ?>">View</a>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            <?php }
-                } 
             ?>
+            <div class="category__container aos-init aos animate" data-aos="fade-up" data-aos-duration="1200" style="height:max-content">
+                <div class="roww">
+                    <div class="card product category__products">
+                    <?php if($row['ndprice'] != $row['price']){ 
+                        $dis = (int)round(($row['ndprice']-$row['price'])/$row['ndprice']*100); ?>
+                        <div class="discount">
+                            <p><?php echo $dis; ?>%</p>
+                        </div>
+                        <?php } ?>
+                        <div class="card_cont">
+                            <div class="book_img">
+                                <img src="./book-images/<?php echo $row['image']; ?>" alt="">
+                                <div class="cost_in_img">
+                                    <p style="margin-top:10px"><?php echo $row['price']; ?> ₹</p>
+                                </div>
+                            </div>
+                            <div class="book_info">
+                                <div class="book_title">
+                                    <h2 style="margin-top:10px;"><?php echo $row['name']; ?></h2>
+                                    <p><?php echo $row['author']; ?></p>
+                                </div>
+                                <div class="desc">
+                                    <p><?php echo substr($row['description'],0,150); ?>...</p>
+                                </div>
+                                <div class="cost">
+                                <?php if($row['ndprice'] != $row['price']){ ?>
+                                    <div class="old_cost">
+                                        <p><?php echo $row['ndprice']; ?> ₹</p>
+                                    </div>
+                                    <?php } ?>
+                                    <div class="discount_price">
+                                        <p><?php echo $row['price']; ?> ₹</p>
+                                    </div>
+                                </div>
+                                <?php if($row['quantity']==0){ ?>
+                                <h4 style="color:red">Out of Stock</h4>
+                            <?php } else { ?>
+                                <h4 style="color:green"><?php echo $row['quantity']; ?> left in stock</h4>
+                                <?php } ?>
+                                <button class="view-btn">
+                                    <a href="product.php?id=<?php echo $row['id']; ?>">View</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                <?php }
+                        } 
+                    ?>
+                </div>
             </div>
         </div>
             
-        </section>
+    </section>
+
             <section class="facility__section section" id="facility" style="margin-top:20px">
-                <div class="container">
-                    <div class="facility__contianer" data-aos="fade-up" data-aos-duration="1200">
-                        <div class="facility__box">
-                            <div class="facility-img__container">
+                <div class="collection_content">
+                    <div class="collection_cont_wrapper">
+                        <div class="collection_info">
+                            <div class="collection_info_img">
                                 <svg>
-                <use xlink:href="./images/sprite.svg#icon-airplane"></use>
-              </svg>
+                                    <use xlink:href="./images/sprite.svg#icon-airplane"></use>
+                                </svg>
                             </div>
                             <p>FREE SHIPPING ACROSS INDIA</p>
                         </div>
 
-                        <div class="facility__box">
-                            <div class="facility-img__container">
+                        <div class="collection_info">
+                            <div class="collection_info_img">
                                 <svg>
-                <use xlink:href="./images/sprite.svg#icon-credit-card-alt"></use>
-              </svg>
+                                    <use xlink:href="./images/sprite.svg#icon-credit-card-alt"></use>
+                                </svg>
                             </div>
                             <p>100% MONEY BACK GUARANTEE</p>
                         </div>
 
-                        <div class="facility__box">
-                            <div class="facility-img__container">
+                        <div class="collection_info">
+                            <div class="collection_info_img">
                                 <svg>
-                <use xlink:href="./images/sprite.svg#icon-credit-card"></use>
-              </svg>
+                                    <use xlink:href="./images/sprite.svg#icon-credit-card"></use>
+                                </svg>
                             </div>
                             <p>MANY PAYMENT GATWAYS</p>
                         </div>
 
-                        <div class="facility__box">
-                            <div class="facility-img__container">
+                        <div class="collection_info">
+                            <div class="collection_info_img">
                                 <svg>
-                <use xlink:href="./images/sprite.svg#icon-headphones"></use>
-              </svg>
+                                    <use xlink:href="./images/sprite.svg#icon-headphones"></use>
+                                </svg>
                             </div>
                             <p>24/7 ONLINE SUPPORT</p>
                         </div>
+
                     </div>
                 </div>
             </section>
@@ -654,6 +658,3 @@ if(isset($_SESSION['id'])){
         </div>
     </div>
 </div>
-
-
-
