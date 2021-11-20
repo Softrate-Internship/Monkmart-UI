@@ -6,7 +6,7 @@
     $sql11 = "SELECT * FROM books";
     if(isset($_POST['search'])){
         $search = $_POST['search'];
-        $sql11 = "SELECT * FROM books WHERE name LIKE '%sola%'";
+        $sql11 = "SELECT * FROM books WHERE name LIKE '%$search%'";
     }
 if(isset($_SESSION['id'])){
     $flag = 1;
